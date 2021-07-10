@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.smeunc.twenty_one_mining">
    <application
-        android:label="twenty_one_mining"
-        android:icon="@mipmap/ic_launcher">
+        android:label="21 Mining"
+        android:icon="@mipmap/twenty_one_mining">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
