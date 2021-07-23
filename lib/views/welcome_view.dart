@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:twenty_one_mining/components/app_bar_component.dart';
+import 'package:twenty_one_mining/components/drawer_componennt.dart';
 import 'package:twenty_one_mining/helpers/storage_manager.dart';
 import 'package:twenty_one_mining/views/register_view.dart';
 
@@ -13,9 +15,8 @@ class WelcomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(
-      // title: Text(""),
-      //),
+      appBar: AppBarComponent(),
+      drawer: DrawerComponent(),
       backgroundColor: Color.fromRGBO(48, 201, 114, 1.0),
       body: Container(
         width: double.infinity,
