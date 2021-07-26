@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:twenty_one_mining/helpers/storage_manager.dart';
+import 'package:twenty_one_mining/views/level_selector_view.dart';
+import 'package:twenty_one_mining/views/register_view.dart';
 import 'package:twenty_one_mining/views/welcome_view.dart';
 
 void main() {
@@ -7,10 +10,12 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  late StorageManager storageManager = new StorageManager();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: '21 Mining',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,8 +29,23 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: WelcomeView(),
+      home: start(),
     );
+  }
+
+  Widget start() {
+    String language = storageManager.read('language').toString();
+    String avatar = storageManager.read('avatar').toString();
+    String name = storageManager.read('name').toString();
+    if (language == 'ESPAÑOL' || language == 'ENGLISH' || language == 'QUICHWA') {
+      if(avatar != '' && name != ''){
+        return LevelSelectorView(storageManager: storageManager);
+      }else{
+        return RegisterView(storageManager: storageManager);
+      }
+    } else {
+      return WelcomeView();
+    }
   }
 }
 

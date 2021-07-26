@@ -16,13 +16,14 @@ class LevelSelectorView extends StatefulWidget {
 
 class _LevelSelectorViewState extends State<LevelSelectorView> {
   String name = '', avatar = '';
-  String selectedLevel = '01';
+  bool showEnvs = false;
   final levels = [
-    Level(1, 'Metales en Casa', 'assets/images/levels/level_1.png'),
-    Level(2, 'Metales en la Medicina', 'assets/images/levels/level_2.png'),
-    Level(3, 'Metales en Transporte', 'assets/images/levels/level_3.png'),
-    Level(4, 'Metales en Agricultura', 'assets/images/levels/level_4.png'),
+    Level(1, 'Metales en Casa', 'assets/images/levels/level_1.png', ['Dormitorio', 'Cocina', 'Sala']),
+    Level(2, 'Metales en la Medicina', 'assets/images/levels/level_2.png', ['Ambulancia', 'Hospital', 'Instrumentos y Equipos']),
+    Level(3, 'Metales en Transporte', 'assets/images/levels/level_3.png', ['Dormitorio', 'Terrestre', 'Maritimo']),
+    Level(4, 'Metales en Agricultura', 'assets/images/levels/level_4.png', ['Maquinaría', 'Herramientas', 'Insumos']),
   ];
+  late Level selectedLevel;
 
   @override
   void initState() {
@@ -37,7 +38,13 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
         this.avatar = value;
       });
     });
-    print('avatar: $avatar');
+    selectedLevel = levels[0];
+  }
+
+  void setShowEnvs(value) {
+    setState(() {
+      this.showEnvs = value;
+    });
   }
 
   @override
@@ -114,7 +121,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                                   ),
                                 ),
                                 Text(
-                                  this.selectedLevel,
+                                  '0' + this.selectedLevel.index.toString(),
                                   style: TextStyle(
                                     fontSize: 35,
                                     fontWeight: FontWeight.bold,
@@ -143,7 +150,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                           height: 250.0,
                           onPageChanged: (index, reason) {
                             setState(() {
-                              this.selectedLevel = '0' + (index + 1).toString();
+                              this.selectedLevel = levels[index];
                             });
                           }),
                       items: levels.map((level) {
@@ -157,71 +164,135 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                                   borderRadius: BorderRadius.all(
                                     const Radius.circular(20.0),
                                   )),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    level.name,
-                                    style: TextStyle(
-                                      height: 3,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                      color: Color.fromRGBO(48, 201, 114, 1.0),
+                              child: OutlinedButton(
+                                onPressed: () => {
+                                  setShowEnvs(!showEnvs)
+                                },
+                                style: OutlinedButton.styleFrom(
+                                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      level.name,
+                                      style: TextStyle(
+                                        height: 3,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                        color: Color.fromRGBO(48, 201, 114, 1.0),
+                                      ),
                                     ),
-                                  ),
-                                  new Expanded(
-                                      child: new Align(
-                                    alignment: Alignment.center,
-                                    child: Image.asset(level.image),
-                                  )),
-                                ],
+                                    new Expanded(
+                                        child: new Align(
+                                      alignment: Alignment.center,
+                                      child: Image.asset(level.image),
+                                    )),
+                                  ],
+                                ),
                               ),
                             );
                           },
                         );
                       }).toList(),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 15.0),
-                      child: Image.asset('assets/images/big_up_arrow.png'),
-                    ),
                   ],
                 ))),
-        Expanded(
-            child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: 70,
-                  decoration: new BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.only(
-                      topLeft: const Radius.circular(20.0),
-                      topRight: const Radius.circular(20.0),
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Tu progreso',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Color.fromRGBO(48, 201, 114, 1.0),
-                        ),
-                      ),
-                      LinearProgressIndicator(
-                        backgroundColor: Colors.white,
-                        color: Color.fromRGBO(240, 127, 65, 1),
-                        value: 0.2,
-                        minHeight: 20,
-                      )
-                    ],
-                  ),
-                )))
+        Expanded(child: Align(alignment: Alignment.bottomCenter, child: getBottomChild()))
       ]),
     );
+  }
+
+  Widget getBottomChild() {
+    if (showEnvs) {
+      return Container(
+        height: 270,
+        decoration: new BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.only(
+            topLeft: const Radius.circular(20.0),
+            topRight: const Radius.circular(20.0),
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.0),
+              child: Column(
+                children: [
+                  Text.rich(
+                    TextSpan(text: 'Elige tu idioma', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.indigo)),
+                  ),
+                  Column(
+                    children: selectedLevel.environments
+                        .map(
+                          (environment) => ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Color.fromRGBO(0, 130, 61, 1.0),
+                              onPrimary: Color.fromRGBO(254, 200, 0, 1.0),
+                              shape: StadiumBorder(),
+                              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                            ),
+                            onPressed: () {},
+                            child: Text(environment),
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ],
+              ),
+            ),
+            Text(
+              'Tu progreso',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: Color.fromRGBO(48, 201, 114, 1.0),
+              ),
+            ),
+            LinearProgressIndicator(
+              backgroundColor: Colors.white,
+              color: Color.fromRGBO(240, 127, 65, 1),
+              value: 0.2,
+              minHeight: 20,
+            )
+          ],
+        ),
+      );
+    } else {
+      return Container(
+        height: 70,
+        decoration: new BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.only(
+            topLeft: const Radius.circular(20.0),
+            topRight: const Radius.circular(20.0),
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Tu progreso',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: Color.fromRGBO(48, 201, 114, 1.0),
+              ),
+            ),
+            LinearProgressIndicator(
+              backgroundColor: Colors.white,
+              color: Color.fromRGBO(240, 127, 65, 1),
+              value: 0.2,
+              minHeight: 20,
+            )
+          ],
+        ),
+      );
+    }
   }
 }
 
@@ -229,6 +300,7 @@ class Level {
   final int index;
   final String name;
   final String image;
+  final List environments;
 
-  Level(this.index, this.name, this.image);
+  Level(this.index, this.name, this.image, this.environments);
 }
