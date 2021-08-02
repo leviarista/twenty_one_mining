@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.smeunc.twenty_one_mining">
+    package="com.smeunc.twenty_one_mining"
+    android:installLocation="preferExternal">
    <application
         android:label="21 Mining"
         android:icon="@mipmap/twenty_one_mining">

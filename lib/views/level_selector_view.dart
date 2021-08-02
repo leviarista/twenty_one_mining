@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:twenty_one_mining/components/app_bar_component.dart';
 import 'package:twenty_one_mining/components/drawer_componennt.dart';
 import 'package:twenty_one_mining/helpers/storage_manager.dart';
+import 'package:twenty_one_mining/views/scenarios/level01/dormitorio_main_view.dart';
 
 class LevelSelectorView extends StatefulWidget {
   final StorageManager storageManager;
@@ -165,9 +167,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                                     const Radius.circular(20.0),
                                   )),
                               child: OutlinedButton(
-                                onPressed: () => {
-                                  setShowEnvs(!showEnvs)
-                                },
+                                onPressed: () => {setShowEnvs(!showEnvs)},
                                 style: OutlinedButton.styleFrom(
                                   shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
                                 ),
@@ -206,7 +206,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
   Widget getBottomChild() {
     if (showEnvs) {
       return Container(
-        height: 270,
+        height: 280,
         decoration: new BoxDecoration(
           color: Colors.white,
           shape: BoxShape.rectangle,
@@ -219,24 +219,33 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0),
+              padding: EdgeInsets.only(top: 5, bottom: 20),
               child: Column(
                 children: [
                   Text.rich(
-                    TextSpan(text: 'Elige tu idioma', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.indigo)),
+                    TextSpan(text: 'Elige tu Ambiente', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.indigo)),
                   ),
                   Column(
                     children: selectedLevel.environments
                         .map(
-                          (environment) => ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromRGBO(0, 130, 61, 1.0),
-                              onPrimary: Color.fromRGBO(254, 200, 0, 1.0),
-                              shape: StadiumBorder(),
-                              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                          (environment) => SizedBox(
+                            // height: 100, //height of button
+                            width: 210, //
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Color.fromRGBO(0, 130, 61, 1.0),
+                                onPrimary: Color.fromRGBO(254, 200, 0, 1.0),
+                                shape: StadiumBorder(),
+                                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => DormitorioMainView()),
+                                );
+                              },
+                              child: Text(environment),
                             ),
-                            onPressed: () {},
-                            child: Text(environment),
                           ),
                         )
                         .toList(),
@@ -252,18 +261,33 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                 color: Color.fromRGBO(48, 201, 114, 1.0),
               ),
             ),
-            LinearProgressIndicator(
-              backgroundColor: Colors.white,
-              color: Color.fromRGBO(240, 127, 65, 1),
-              value: 0.2,
-              minHeight: 20,
-            )
+            Padding(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              child: LinearProgressIndicator(
+                backgroundColor: Colors.white,
+                color: Color.fromRGBO(240, 127, 65, 1),
+                value: 0.33,
+                minHeight: 20,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('0 barras'),
+                  Text('1 barra'),
+                  Text('2 barras'),
+                  Text('3 barras'),
+                ],
+              ),
+            ),
           ],
         ),
       );
     } else {
       return Container(
-        height: 70,
+        height: 95,
         decoration: new BoxDecoration(
           color: Colors.white,
           shape: BoxShape.rectangle,
@@ -283,12 +307,27 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                 color: Color.fromRGBO(48, 201, 114, 1.0),
               ),
             ),
-            LinearProgressIndicator(
-              backgroundColor: Colors.white,
-              color: Color.fromRGBO(240, 127, 65, 1),
-              value: 0.2,
-              minHeight: 20,
-            )
+            Padding(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              child: LinearProgressIndicator(
+                backgroundColor: Colors.white,
+                color: Color.fromRGBO(240, 127, 65, 1),
+                value: 0.33,
+                minHeight: 20,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('0 barras'),
+                  Text('1 barra'),
+                  Text('2 barras'),
+                  Text('3 barras'),
+                ],
+              ),
+            ),
           ],
         ),
       );

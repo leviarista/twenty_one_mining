@@ -5,6 +5,7 @@ import 'package:twenty_one_mining/helpers/storage_manager.dart';
 import 'package:twenty_one_mining/views/register_view.dart';
 
 class WelcomeView extends StatelessWidget {
+
   final StorageManager storageManager = new StorageManager();
   static const languages = [
     const Language('ESPAÑOL', 38),

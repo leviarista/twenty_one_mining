@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twenty_one_mining/helpers/storage_manager.dart';
 import 'package:twenty_one_mining/views/register_view.dart';
+import 'package:twenty_one_mining/views/welcome_view.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DrawerComponent extends StatelessWidget {
+  final StorageManager storageManager = new StorageManager();
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -36,6 +39,7 @@ class DrawerComponent extends StatelessWidget {
               );
             },
           ),
+
           ListTile(
             leading: Icon(Icons.link),
             title: Text('Ir a SME UNC'),
@@ -51,6 +55,19 @@ class DrawerComponent extends StatelessWidget {
           //   },
           // ),
           ListTile(
+            leading: Icon(Icons.delete),
+            title: Text('Limpiar Datos'),
+            onTap: () {
+              storageManager.write('language', '');
+              storageManager.write('avatar', '');
+              storageManager.write('name', '');
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => WelcomeView()),
+              );
+            },
+          ),          ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Salir'),
             onTap: () {
