@@ -3,8 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twenty_one_mining/components/app_bar_component.dart';
-import 'package:twenty_one_mining/components/drawer_componennt.dart';
+import 'package:twenty_one_mining/components/drawer_component.dart';
+import 'package:twenty_one_mining/entities/level.dart';
 import 'package:twenty_one_mining/helpers/storage_manager.dart';
+import 'package:twenty_one_mining/repositories/level_repository.dart';
+import 'package:twenty_one_mining/views/scenario_view.dart';
 import 'package:twenty_one_mining/views/scenarios/level01/dormitorio_main_view.dart';
 
 class LevelSelectorView extends StatefulWidget {
@@ -19,12 +22,7 @@ class LevelSelectorView extends StatefulWidget {
 class _LevelSelectorViewState extends State<LevelSelectorView> {
   String name = '', avatar = '';
   bool showEnvs = false;
-  final levels = [
-    Level(1, 'Metales en Casa', 'assets/images/levels/level_1.png', ['Dormitorio', 'Cocina', 'Sala']),
-    Level(2, 'Metales en la Medicina', 'assets/images/levels/level_2.png', ['Ambulancia', 'Hospital', 'Instrumentos y Equipos']),
-    Level(3, 'Metales en Transporte', 'assets/images/levels/level_3.png', ['Dormitorio', 'Terrestre', 'Maritimo']),
-    Level(4, 'Metales en Agricultura', 'assets/images/levels/level_4.png', ['Maquinaría', 'Herramientas', 'Insumos']),
-  ];
+  final List<Level> levels = LevelRepository().getLevels();
   late Level selectedLevel;
 
   @override
@@ -239,10 +237,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                               ),
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => DormitorioMainView()),
-                                );
+                                navigateToEnvironment(environment);
                               },
                               child: Text(environment),
                             ),
@@ -333,13 +328,135 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
       );
     }
   }
-}
 
-class Level {
-  final int index;
-  final String name;
-  final String image;
-  final List environments;
-
-  Level(this.index, this.name, this.image, this.environments);
+  void navigateToEnvironment(environment) {
+    switch (environment) {
+      // Metales en Casa
+      case 'Dormitorio':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ScenarioView(
+                  scenario: environment,
+                  backgroundImage: 'assets/images/environments/dormitorio_background.png',
+                  backgroundImageYellow: 'assets/images/environments/dormitorio_background_yellow.png')),
+        );
+        break;
+      case 'Cocina':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ScenarioView(
+                  scenario: environment,
+                  backgroundImage: 'assets/images/environments/dormitorio_background.png',
+                  backgroundImageYellow: 'assets/images/environments/dormitorio_background_yellow.png')),
+        );
+        break;
+      case 'Sala':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ScenarioView(
+                  scenario: environment,
+                  backgroundImage: 'assets/images/environments/dormitorio_background.png',
+                  backgroundImageYellow: 'assets/images/environments/dormitorio_background_yellow.png')),
+        );
+        break;
+      // Metales en la Medicina
+      case 'Ambulancia':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ScenarioView(
+                  scenario: environment,
+                  backgroundImage: 'assets/images/environments/ambulancia_background.png',
+                  backgroundImageYellow: 'assets/images/environments/ambulancia_background_yellow.png')),
+        );
+        break;
+      case 'Hospital':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ScenarioView(
+                  scenario: environment,
+                  backgroundImage: 'assets/images/environments/hospital_background.png',
+                  backgroundImageYellow: 'assets/images/environments/hospital_background_yellow.png')),
+        );
+        break;
+      case 'Instrumentos y Equipos':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ScenarioView(
+                  scenario: environment,
+                  backgroundImage: 'assets/images/environments/instrumentos_equipos_background.png',
+                  backgroundImageYellow: 'assets/images/environments/instrumentos_equipos_background_yellow.png')),
+        );
+        break;
+      // Metales en Transporte
+      case 'Aéreo':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ScenarioView(
+                  scenario: environment,
+                  backgroundImage: 'assets/images/environments/aereo_background.png',
+                  backgroundImageYellow: 'assets/images/environments/aereo_background_yellow.png')),
+        );
+        break;
+      case 'Terrestre':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ScenarioView(
+                  scenario: environment,
+                  backgroundImage: 'assets/images/environments/terrestre_background.png',
+                  backgroundImageYellow: 'assets/images/environments/terrestre_background_yellow.png')),
+        );
+        break;
+      case 'Marítimo':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ScenarioView(
+                  scenario: environment,
+                  backgroundImage: 'assets/images/environments/maritimo_background.png',
+                  backgroundImageYellow: 'assets/images/environments/maritimo_background_yellow.png')),
+        );
+        break;
+      // Metales en Agricultura
+      case 'Maquinaría':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ScenarioView(
+                  scenario: environment,
+                  backgroundImage: 'assets/images/environments/maquinaria_background.png',
+                  backgroundImageYellow: 'assets/images/environments/maquinaria_background_yellow.png')),
+        );
+        break;
+      case 'Herramientas':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ScenarioView(
+                  scenario: environment,
+                  backgroundImage: 'assets/images/environments/herramientas_background.png',
+                  backgroundImageYellow: 'assets/images/environments/herramientas_background_yellow.png')),
+        );
+        break;
+      case 'Insumos':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => ScenarioView(
+                  scenario: environment,
+                  backgroundImage: 'assets/images/environments/insumos_background.png',
+                  backgroundImageYellow: 'assets/images/environments/insumos_background_yellow.png')),
+        );
+        break;
+      default:
+        break;
+    }
+  }
 }

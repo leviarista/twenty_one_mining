@@ -6,6 +6,7 @@ class EnvironmentItem {
   final double? right;
   final double? bottom;
   final double? left;
+  final String? message;
 
   EnvironmentItem(
     this.index,
@@ -15,5 +16,6 @@ class EnvironmentItem {
     this.right,
     this.bottom,
     this.left,
+    this.message,
   );
 }

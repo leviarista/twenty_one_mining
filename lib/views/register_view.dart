@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twenty_one_mining/components/app_bar_component.dart';
-import 'package:twenty_one_mining/components/drawer_componennt.dart';
+import 'package:twenty_one_mining/components/drawer_component.dart';
 import 'package:twenty_one_mining/helpers/storage_manager.dart';
 import 'package:twenty_one_mining/views/level_selector_view.dart';
 
@@ -172,7 +172,7 @@ class _RegisterViewState extends State<RegisterView> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: const Text('Thanks!'),
+                            // title: const Text('Thanks!'),
                             content: Text('Por favor, ingrese un nombre'),
                             actions: [
                               TextButton(

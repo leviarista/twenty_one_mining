@@ -4,20 +4,30 @@ import 'package:twenty_one_mining/components/app_bar_component.dart';
 import 'package:twenty_one_mining/components/drawer_component.dart';
 import 'package:twenty_one_mining/helpers/storage_manager.dart';
 import 'package:twenty_one_mining/views/level_selector_view.dart';
+import 'package:twenty_one_mining/views/scenario_items_view.dart';
 import 'package:twenty_one_mining/views/scenarios/level01/dormitorio_items_view.dart';
 
-class DormitorioMainView extends StatefulWidget {
+class ScenarioView extends StatefulWidget {
+  late final String scenario;
+  late final String backgroundImage;
+  late final String backgroundImageYellow;
+
+  ScenarioView({Key? key, required this.scenario, required this.backgroundImage, required this.backgroundImageYellow}) : super(key: key);
+
   @override
-  DormitorioMainViewState createState() => DormitorioMainViewState();
+  ScenarioViewState createState() => ScenarioViewState();
 }
 
-class DormitorioMainViewState extends State<DormitorioMainView> {
+class ScenarioViewState extends State<ScenarioView> {
   int taps = 0;
-  String backgroundImage = 'assets/images/environments/dormitorio_background.png';
+  late String backgroundImage;
 
   @override
   void initState() {
     super.initState();
+    setState(() {
+      backgroundImage = this.widget.backgroundImage;
+    });
     SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeRight]);
   }
 
@@ -27,12 +37,12 @@ class DormitorioMainViewState extends State<DormitorioMainView> {
     });
     if (taps == 1) {
       setState(() {
-        backgroundImage = 'assets/images/environments/dormitorio_background_yellow.png';
+        backgroundImage = this.widget.backgroundImageYellow;
       });
     } else if (taps >= 2) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => DormitorioItemsView()),
+        MaterialPageRoute(builder: (context) => ScenarioItemsView(scenario: this.widget.scenario)),
       );
     }
   }
@@ -70,8 +80,8 @@ class DormitorioMainViewState extends State<DormitorioMainView> {
                 Visibility(
                   visible: taps == 0,
                   child: Positioned(
-                    bottom: 50,
-                    left: 50,
+                    bottom: 25,
+                    left: 25,
                     // right: 10.0,
                     child: Image.asset('assets/images/instructions_1.png'),
                   ),
@@ -79,8 +89,8 @@ class DormitorioMainViewState extends State<DormitorioMainView> {
                 Visibility(
                   visible: taps >= 1,
                   child: Positioned(
-                    bottom: 50,
-                    right: 50,
+                    bottom: 25,
+                    right: 25,
                     // right: 10.0,
                     child: Image.asset('assets/images/instructions_2.png'),
                   ),
@@ -90,7 +100,7 @@ class DormitorioMainViewState extends State<DormitorioMainView> {
                   right: 50,
                   // right: 10.0,
                   child: Text(
-                    'DORMITORIO',
+                    this.widget.scenario.toUpperCase(),
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
                       fontSize: 20,

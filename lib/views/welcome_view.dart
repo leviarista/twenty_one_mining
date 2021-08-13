@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twenty_one_mining/components/app_bar_component.dart';
-import 'package:twenty_one_mining/components/drawer_componennt.dart';
+import 'package:twenty_one_mining/components/drawer_component.dart';
 import 'package:twenty_one_mining/helpers/storage_manager.dart';
 import 'package:twenty_one_mining/views/register_view.dart';
 
