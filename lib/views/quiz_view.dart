@@ -73,58 +73,58 @@ class QuizViewState extends State<QuizView> {
                   shrinkWrap: true,
                   children: quiz.options
                       .map(
-                        (option) => ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.transparent,
-                            onPrimary: Colors.white,
-                            shadowColor: Colors.transparent,
-                            // shape: StadiumBorder(),
-                            // padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                          ),
-                          onPressed: () {
-                            // navigateToEnvironment(environment);
-                            if(quiz.answer == (quiz.options.indexOf(option) + 1)){
-                              print('Correct answer');
-                              showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    title: const Text('¡Genial!'),
-                                    content: Text('Respuesta correcta'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: const Text('OK'),
-                                      ),
-                                    ],
+                        (option) => Padding(
+                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 50),
+                          child: Stack(alignment: Alignment.center, children: [
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.transparent,
+                                onPrimary: Colors.white,
+                                shadowColor: Colors.transparent,
+                                // shape: StadiumBorder(),
+                                // padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                              ),
+                              onPressed: () {
+                                // navigateToEnvironment(environment);
+                                if (quiz.answer == (quiz.options.indexOf(option) + 1)) {
+                                  print('Correct answer');
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        title: const Text('¡Genial!'),
+                                        content: Text('Respuesta correcta'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: const Text('OK'),
+                                          ),
+                                        ],
+                                      );
+                                    },
                                   );
-                                },
-                              );
-                            }else{
-                              showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    content: Text('Respuesta incorrecta'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: const Text('OK'),
-                                      ),
-                                    ],
+                                } else {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        content: Text('Respuesta incorrecta'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: const Text('OK'),
+                                          ),
+                                        ],
+                                      );
+                                    },
                                   );
-                                },
-                              );
-                            }
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.all(5),
-                            child: Stack(alignment: Alignment.center, children: [
-                              Container(
+                                }
+                              },
+                              child: Container(
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
@@ -133,19 +133,20 @@ class QuizViewState extends State<QuizView> {
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(top: 20, left: 50),
-                                child: Text(
-                                  option,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18,
-                                  ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 20, left: 50),
+                              child: Text(
+                                option,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.white,
                                 ),
-                              )
-                            ]),
-                          ),
+                              ),
+                            )
+                          ]),
                         ),
                       )
                       .toList())

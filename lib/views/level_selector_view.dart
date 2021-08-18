@@ -348,8 +348,8 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
           MaterialPageRoute(
               builder: (context) => ScenarioView(
                   scenario: environment,
-                  backgroundImage: 'assets/images/environments/dormitorio_background.png',
-                  backgroundImageYellow: 'assets/images/environments/dormitorio_background_yellow.png')),
+                  backgroundImage: 'assets/images/environments/cocina_background.png',
+                  backgroundImageYellow: 'assets/images/environments/cocina_background_yellow.png')),
         );
         break;
       case 'Sala':
@@ -358,8 +358,8 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
           MaterialPageRoute(
               builder: (context) => ScenarioView(
                   scenario: environment,
-                  backgroundImage: 'assets/images/environments/dormitorio_background.png',
-                  backgroundImageYellow: 'assets/images/environments/dormitorio_background_yellow.png')),
+                  backgroundImage: 'assets/images/environments/sala_background.png',
+                  backgroundImageYellow: 'assets/images/environments/sala_background_yellow.png')),
         );
         break;
       // Metales en la Medicina

@@ -26,15 +26,50 @@ class EnvironmentRepository {
         ];
         break;
       case 'Cocina':
+        return [
+          EnvironmentItem(1, 'assets/images/environments/cocina_item (1).png', 'center', 50, null, null, 15,
+              'Sabías que los refrigeradores emplean laminas de alumnio en su construcción y en el sistema de enfriamiento se emplea cobre.'),
+          EnvironmentItem(2, 'assets/images/environments/cocina_item (2).png', 'center', 50, null, null, null,
+              'Sabías que la parte más impotante de los microondas es el magnetrón, y está hecho con titanio. \n Así mismo este electrodoméstico emplea: hierro, cobre y alumnio.'),
+          EnvironmentItem(3, 'assets/images/environments/cocina_item (3).png', 'center', null, 50, null, null,
+              'Sabías que en las cocinas se emplea el alumnio, cobre, hierro y demás metales en su construcción.'),
+        ];
         break;
       case 'Sala':
+        return [
+          EnvironmentItem(1, 'assets/images/environments/sala_item (1).png', 'center', 50, null, null, 50,
+              'Sabías que los televisores emplean chips para su funcionamiento y para la elaboración se emplea cobre, silicio, oro, entre otros.'),
+          EnvironmentItem(2, 'assets/images/environments/sala_item (2).png', 'center', null, null, 50, 70,
+              'Sabias que en los parlantes y la industria del sonido emplean plata, titanio, aluminio, oro y otros.'),
+          EnvironmentItem(3, 'assets/images/environments/sala_item (3).png', 'center', null, 50, null, null,
+              'Sabías que las nuevas tecnologías LED emplean sicilio en su elaboración.'),
+        ];
         break;
       // Metales en la Medicina
       case 'Ambulancia':
+        return [
+          EnvironmentItem(1, 'assets/images/environments/ambulancia_item (1).png', 'center', null, null, null, null, null),
+        ];
         break;
       case 'Hospital':
+        return [
+          EnvironmentItem(1, 'assets/images/environments/hospital_item (1).png', 'center', null, null, 15, 15,
+              'CAMILLA CLÍNICA \n ⦁	Acero inoxidable(estructura), reservas: Hierro, Marcona. Cromo, Morococha (Junín) . Carbono, Cascas (La Libertad) \n ⦁	Aluminio, reservas: Toromocho (Junín)'),
+          EnvironmentItem(2, 'assets/images/environments/hospital_item (2).png', 'center', 15, 105, null, null,
+              'SUERO FISIOLÓGICO \n ⦁	Cloruro de Sodio, reservas: '),
+          EnvironmentItem(3, 'assets/images/environments/hospital_item (3).png', 'center', 15, 15, null, null,
+              'SUERO FISIOLÓGICO \n ⦁	Cloruro de Sodio, reservas: '),
+        ];
         break;
       case 'Instrumentos y Equipos':
+        return [
+          EnvironmentItem(1, 'assets/images/environments/instrumentos_equipos_item (1).png', 'center', null, null, null, 15,
+              'NEGATOSCOPIO (lector de radiografías) \n ⦁	Indio- galio- arsénico (luces LED), reservas: Morococha \n ⦁	Aluminio, reservas: Toromocho \n ⦁	Acero inoxidable(estructura), reservas: Hierro, Marcona. Cromo, Morococha. Carbono, Cascas.'),
+          EnvironmentItem(2, 'assets/images/environments/instrumentos_equipos_item (2).png', 'center', null, null, null, null,
+              'MOBILIARIO QUIRURGICO: \n ⦁	 Cobre (cables de conexión), reservas: Antamina (Ancash), Toquepala, Cerro Verde, Cuajone y Tintaya (Arequipa) \n ⦁	Hierro(estructura), reservas: Hierro, Marcona (Ica)'),
+          EnvironmentItem(3, 'assets/images/environments/instrumentos_equipos_item (3).png', 'center', null, 15, null, null,
+              'ELECTROCARDIÓGRAFO \n ⦁	Aluminio(estructura), reservas: Toromocho \n ⦁	Plata (electrodo desechable), reservas: Antamina (Ancash) \n ⦁	Litio (batería recargable). reservas: Macusani (Puno)'),
+        ];
         break;
       // Metales en Transporte
       case 'Aéreo':
@@ -45,10 +80,18 @@ class EnvironmentRepository {
         break;
       // Metales en Agricultura
       case 'Maquinaría':
+        return [
+          EnvironmentItem(1, 'assets/images/environments/maquinaria_item (1).png', 'center', null, null, null, null, null),
+        ];
         break;
       case 'Herramientas':
         break;
       case 'Insumos':
+        return [
+          EnvironmentItem(1, 'assets/images/environments/insumos_item (1).png', 'center', null, null, null, 15, null),
+          EnvironmentItem(2, 'assets/images/environments/insumos_item (2).png', 'center', null, null, null, null, null),
+          EnvironmentItem(3, 'assets/images/environments/insumos_item (3).png', 'center', null, 15, null, null, null),
+        ];
         break;
       default:
         break;

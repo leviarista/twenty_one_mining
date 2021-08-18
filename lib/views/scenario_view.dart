@@ -62,12 +62,12 @@ class ScenarioViewState extends State<ScenarioView> {
             );
             return new Future(() => false);
           },
-          child: GestureDetector(
-            onTap: () => updateUI(),
-            child: Stack(
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(50),
+          child: Stack(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(50),
+                child: GestureDetector(
+                  onTap: () => updateUI(),
                   child: Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
@@ -77,38 +77,38 @@ class ScenarioViewState extends State<ScenarioView> {
                     ),
                   ),
                 ),
-                Visibility(
-                  visible: taps == 0,
-                  child: Positioned(
-                    bottom: 25,
-                    left: 25,
-                    // right: 10.0,
-                    child: Image.asset('assets/images/instructions_1.png'),
-                  ),
-                ),
-                Visibility(
-                  visible: taps >= 1,
-                  child: Positioned(
-                    bottom: 25,
-                    right: 25,
-                    // right: 10.0,
-                    child: Image.asset('assets/images/instructions_2.png'),
-                  ),
-                ),
-                Positioned(
-                  top: 50,
-                  right: 50,
+              ),
+              Visibility(
+                visible: taps == 0,
+                child: Positioned(
+                  bottom: 25,
+                  left: 25,
                   // right: 10.0,
-                  child: Text(
-                    this.widget.scenario.toUpperCase(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: 20,
-                    ),
+                  child: Image.asset('assets/images/instructions_1.png'),
+                ),
+              ),
+              Visibility(
+                visible: taps >= 1,
+                child: Positioned(
+                  bottom: 25,
+                  right: 25,
+                  // right: 10.0,
+                  child: Image.asset('assets/images/instructions_2.png'),
+                ),
+              ),
+              Positioned(
+                top: 50,
+                right: 50,
+                // right: 10.0,
+                child: Text(
+                  this.widget.scenario.toUpperCase(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 20,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ));
   }
