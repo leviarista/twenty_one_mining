@@ -21,7 +21,7 @@ class LevelSelectorView extends StatefulWidget {
 
 class _LevelSelectorViewState extends State<LevelSelectorView> {
   String name = '', avatar = '';
-  List progress = [];
+  List progress = [0.0];
   bool showEnvs = false;
   final List<Level> levels = LevelRepository().getLevels();
   late Level selectedLevel;
