@@ -26,7 +26,7 @@ class StorageManager {
 
   Future<File> get _localFileProgress async {
     final path = await _localPath;
-    return File('$path/name.txt');
+    return File('$path/progress.txt');
   }
 
   Future<String> read(String parameter) async {
@@ -41,6 +41,9 @@ class StorageManager {
           break;
         case 'name':
           file = await _localFileName;
+          break;
+        case 'progress':
+          file = await _localFileProgress;
           break;
         default:
           file = null;
@@ -68,6 +71,9 @@ class StorageManager {
         break;
       case 'name':
         file = await _localFileName;
+        break;
+      case 'progress':
+        file = await _localFileProgress;
         break;
       default:
         file = null;

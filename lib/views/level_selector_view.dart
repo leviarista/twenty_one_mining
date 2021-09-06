@@ -21,6 +21,7 @@ class LevelSelectorView extends StatefulWidget {
 
 class _LevelSelectorViewState extends State<LevelSelectorView> {
   String name = '', avatar = '';
+  List progress = [];
   bool showEnvs = false;
   final List<Level> levels = LevelRepository().getLevels();
   late Level selectedLevel;
@@ -39,6 +40,19 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
       });
     });
     selectedLevel = levels[0];
+    widget.storageManager.read('progress').then((value) {
+      List tmpProgress = [];
+      levels.forEach((level) {
+        double levelProgress = 0;
+        level.environments.forEach((env) {
+          if (value.contains('#' + env + '#')) levelProgress++;
+        });
+        tmpProgress.add(levelProgress / 3);
+      });
+      setState(() {
+        this.progress = tmpProgress;
+      });
+    });
   }
 
   void setShowEnvs(value) {
@@ -196,185 +210,122 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                     ),
                   ],
                 ))),
-        Expanded(child: Align(alignment: Alignment.bottomCenter, child: getBottomChild()))
+        Expanded(
+            child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  height: showEnvs ? 294 : 110,
+                  decoration: new BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.only(
+                      topLeft: const Radius.circular(20.0),
+                      topRight: const Radius.circular(20.0),
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      getEnvs(),
+                      Text(
+                        'Tu progreso',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Color.fromRGBO(48, 201, 114, 1.0),
+                        ),
+                      ),
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Positioned(
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 15, right: 15, top: 5),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                child: LinearProgressIndicator(
+                                  backgroundColor: Color.fromRGBO(209, 225, 240, .5),
+                                  color: Color.fromRGBO(240, 127, 65, 1),
+                                  value: this.progress[this.selectedLevel.index - 1] != null ? this.progress[this.selectedLevel.index - 1] : 0,
+                                  minHeight: 12,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 15, right: 15, top: 5),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('                  '),
+                                  Image.asset('assets/images/gold_bar_1.png'),
+                                  Image.asset('assets/images/gold_bar_2.png'),
+                                  Image.asset('assets/images/gold_bar_3.png'),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 15, right: 15, top: 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('0 barras'),
+                            Text('1 barra'),
+                            Text('2 barras'),
+                            Text('3 barras'),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )))
       ]),
     );
   }
 
-  Widget getBottomChild() {
-    if (showEnvs) {
-      return Container(
-        height: 295,
-        decoration: new BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.only(
-            topLeft: const Radius.circular(20.0),
-            topRight: const Radius.circular(20.0),
-          ),
-        ),
+  Widget getEnvs() {
+    if (showEnvs)
+      return Padding(
+        padding: EdgeInsets.only(top: 5, bottom: 20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: EdgeInsets.only(top: 5, bottom: 20),
-              child: Column(
-                children: [
-                  Text.rich(
-                    TextSpan(text: 'Elige tu Ambiente', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.indigo)),
-                  ),
-                  Column(
-                    children: selectedLevel.environments
-                        .map(
-                          (environment) => SizedBox(
-                            // height: 100, //height of button
-                            width: 210, //
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                primary: Color.fromRGBO(0, 130, 61, 1.0),
-                                onPrimary: Color.fromRGBO(254, 200, 0, 1.0),
-                                shape: StadiumBorder(),
-                                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                              ),
-                              onPressed: () {
-                                navigateToEnvironment(environment);
-                              },
-                              child: Text(environment),
-                            ),
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ],
-              ),
+            Text.rich(
+              TextSpan(text: 'Elige tu Ambiente', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.indigo)),
             ),
-            Text(
-              'Tu progreso',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Color.fromRGBO(48, 201, 114, 1.0),
-              ),
-            ),
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                Positioned(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 15, right: 15, top: 5),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 225, 240, .5),
-                        color: Color.fromRGBO(240, 127, 65, 1),
-                        value: 0.33,
-                        minHeight: 20,
+            Column(
+              children: selectedLevel.environments
+                  .map(
+                    (environment) => SizedBox(
+                      // height: 100, //height of button
+                      width: 210, //
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromRGBO(0, 130, 61, 1.0),
+                          onPrimary: Color.fromRGBO(254, 200, 0, 1.0),
+                          shape: StadiumBorder(),
+                          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                        ),
+                        onPressed: () {
+                          navigateToEnvironment(environment);
+                        },
+                        child: Text(environment),
                       ),
                     ),
-                  ),
-                ),
-                Positioned(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 15, right: 15, top: 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('                 '),
-                        Image.asset('assets/images/gold_bar_1.png'),
-                        Image.asset('assets/images/gold_bar_2.png'),
-                        Image.asset('assets/images/gold_bar_3.png'),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 15, right: 15, top: 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('0 barras'),
-                  Text('1 barra'),
-                  Text('2 barras'),
-                  Text('3 barras'),
-                ],
-              ),
+                  )
+                  .toList(),
             ),
           ],
         ),
       );
-    } else {
-      return Container(
-        height: 110,
-        decoration: new BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.only(
-            topLeft: const Radius.circular(20.0),
-            topRight: const Radius.circular(20.0),
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Tu progreso',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Color.fromRGBO(48, 201, 114, 1.0),
-              ),
-            ),
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                Positioned(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 15, right: 15, top: 5),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      child: LinearProgressIndicator(
-                        backgroundColor: Color.fromRGBO(209, 225, 240, .5),
-                        color: Color.fromRGBO(240, 127, 65, 1),
-                        value: 0.33,
-                        minHeight: 20,
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 15, right: 15, top: 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('                 '),
-                        Image.asset('assets/images/gold_bar_1.png'),
-                        Image.asset('assets/images/gold_bar_2.png'),
-                        Image.asset('assets/images/gold_bar_3.png'),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 15, right: 15, top: 5),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('0 barras'),
-                  Text('1 barra'),
-                  Text('2 barras'),
-                  Text('3 barras'),
-                ],
-              ),
-            ),
-          ],
-        ),
+    else
+      return Visibility(
+        visible: false,
+        child: Row(),
       );
-    }
   }
 
   void navigateToEnvironment(environment) {

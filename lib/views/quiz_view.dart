@@ -17,6 +17,7 @@ class QuizView extends StatefulWidget {
 }
 
 class QuizViewState extends State<QuizView> {
+  StorageManager storageManager = new StorageManager();
   late Quiz quiz;
 
   @override
@@ -101,10 +102,20 @@ class QuizViewState extends State<QuizView> {
                                           TextButton(
                                             onPressed: () {
                                               SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(builder: (context) => LevelSelectorView(storageManager: new StorageManager())),
-                                              );
+                                              this.storageManager.read('progress').then((value) {
+                                                if (value.contains('#' + this.quiz.scenario + '#')) {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(builder: (context) => LevelSelectorView(storageManager: new StorageManager())),
+                                                  );
+                                                } else {
+                                                  storageManager.write('progress', value + '#' + this.quiz.scenario + '#');
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(builder: (context) => LevelSelectorView(storageManager: new StorageManager())),
+                                                  );
+                                                }
+                                              });
                                             },
                                             child: const Text('OK'),
                                           ),
