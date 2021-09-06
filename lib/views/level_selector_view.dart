@@ -204,7 +204,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
   Widget getBottomChild() {
     if (showEnvs) {
       return Container(
-        height: 280,
+        height: 295,
         decoration: new BoxDecoration(
           color: Colors.white,
           shape: BoxShape.rectangle,
@@ -256,17 +256,41 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                 color: Color.fromRGBO(48, 201, 114, 1.0),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 15, right: 15),
-              child: LinearProgressIndicator(
-                backgroundColor: Colors.white,
-                color: Color.fromRGBO(240, 127, 65, 1),
-                value: 0.33,
-                minHeight: 20,
-              ),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Positioned(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 15, right: 15, top: 5),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      child: LinearProgressIndicator(
+                        backgroundColor: Color.fromRGBO(209, 225, 240, .5),
+                        color: Color.fromRGBO(240, 127, 65, 1),
+                        value: 0.33,
+                        minHeight: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 15, right: 15, top: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('                 '),
+                        Image.asset('assets/images/gold_bar_1.png'),
+                        Image.asset('assets/images/gold_bar_2.png'),
+                        Image.asset('assets/images/gold_bar_3.png'),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
             Padding(
-              padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+              padding: EdgeInsets.only(left: 15, right: 15, top: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -282,7 +306,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
       );
     } else {
       return Container(
-        height: 95,
+        height: 110,
         decoration: new BoxDecoration(
           color: Colors.white,
           shape: BoxShape.rectangle,
@@ -302,17 +326,41 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                 color: Color.fromRGBO(48, 201, 114, 1.0),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 15, right: 15),
-              child: LinearProgressIndicator(
-                backgroundColor: Colors.white,
-                color: Color.fromRGBO(240, 127, 65, 1),
-                value: 0.33,
-                minHeight: 20,
-              ),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Positioned(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 15, right: 15, top: 5),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      child: LinearProgressIndicator(
+                        backgroundColor: Color.fromRGBO(209, 225, 240, .5),
+                        color: Color.fromRGBO(240, 127, 65, 1),
+                        value: 0.33,
+                        minHeight: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 15, right: 15, top: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('                 '),
+                        Image.asset('assets/images/gold_bar_1.png'),
+                        Image.asset('assets/images/gold_bar_2.png'),
+                        Image.asset('assets/images/gold_bar_3.png'),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
             Padding(
-              padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+              padding: EdgeInsets.only(left: 15, right: 15, top: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

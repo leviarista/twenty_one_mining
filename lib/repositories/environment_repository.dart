@@ -73,24 +73,131 @@ class EnvironmentRepository {
         break;
       // Metales en Transporte
       case 'Aéreo':
+        return [
+          EnvironmentItem(1, 'assets/images/environments/aereo_item (1).png', 'stack', 50, null, null, 15, '''CABINA DE MANDO:
+•	FIBRA DE CARBONO 
+•	Magnesio
+•	Zinc
+'''),
+          EnvironmentItem(2, 'assets/images/environments/aereo_item (2).png', 'center', 50, null, null, null, '''PANTALLAS MULTIFUNCIÓN:
+⦁	Cobre 
+⦁	INDIO
+⦁	Germanio
+⦁	Silicio
+'''),
+          EnvironmentItem(3, 'assets/images/environments/aereo_item (3).png', 'center', 50, 15, null, null, '''AURICULARES:
+⦁	CABLES DE COBRE
+⦁	Estaño 
+⦁	Silicio 
+⦁	Galio'''),
+          EnvironmentItem(4, 'assets/images/environments/aereo_item (4).png', 'center', null, null, 15, 15, '''EXTERIOR DEL AVIÓN:
+⦁	Aluminio
+⦁	Titanio
+⦁	Magnesio
+'''),
+          EnvironmentItem(5, 'assets/images/environments/aereo_item (5).png', 'center', null, null, 15, null, '''LUCES INTERIORES (LUCES LED):
+⦁	INDIO
+⦁	GALIO
+⦁	NITRÓGENO
+'''),
+          EnvironmentItem(6, 'assets/images/environments/aereo_item (6).png', 'center', null, 15, 15, null, '''ASIENTO DEL AVION:
+⦁	COBRE (CABLEADO INTERNO)
+⦁	CARBON (PARA LA CREACIÓN DEL PLÁSTICO DEL QUE ESTÁ HECHO)
+⦁	Aceros con alineaciones de cromo. Aluminio, níquel, vanadio. (PERNOS DEL ASIENTO)
+'''),
+        ];
         break;
       case 'Terrestre':
+        return [
+          EnvironmentItem(1, 'assets/images/environments/terrestre_item (1).png', 'center', 15, null, null, null, '''CHASIS DEL CARRO:
+⦁	ACERO (HIERRO Y CARBONO)
+⦁	ALUMINIO
+'''),
+          EnvironmentItem(2, 'assets/images/environments/terrestre_item (2).png', 'center', null, null, 50, 15, '''MOTOR:
+⦁	Cobre
+ Aluminio
+⦁	Cromo
+⦁	Indio
+⦁	Vanadio
+⦁	Indio
+⦁	Magnesio
+'''),
+          EnvironmentItem(3, 'assets/images/environments/terrestre_item (3).png', 'center', null, null, 15, 100, '''LLANTA (RINES):
+⦁	ALUMINIO 
+⦁	MAGNESIO
+⦁	HIERRO (TIERCAS)'''),
+          EnvironmentItem(4, 'assets/images/environments/terrestre_item (4).png', 'center', null, 100, 15, null, '''RADIADOR:
+ COBRE
+⦁	ALUMINIO 
+⦁	LATÓN (COBRE Y ZINC)'''),
+          EnvironmentItem(5, 'assets/images/environments/terrestre_item (5).png', 'center', null, 15, 50, null, '''BATERÍA:
+⦁	LITIO
+⦁	COBALTO
+⦁	PLOMO
+⦁	COBRE'''),
+        ];
         break;
       case 'Marítimo':
+        return [
+          EnvironmentItem(1, 'assets/images/environments/maritimo_item (1).png', 'center', 50, null, null, null, '''CASCO DEL BARCO: 
+⦁	HIERRO 
+⦁	CARBONO
+⦁	ALUMINIO
+'''),
+          EnvironmentItem(2, 'assets/images/environments/maritimo_item (2).png', 'center', null, null, 50, 50, '''SUPERESTRUCTURA DE BARCO:
+⦁	HIERRO 
+⦁	CARBONO
+⦁	COBRE
+⦁	ALUMINIO
+⦁	TITANIO
+⦁	BRONCE (COBRE Y ESTAÑO)
+'''),
+          EnvironmentItem(3, 'assets/images/environments/maritimo_item (3).png', 'center', null, 50, 50, null, '''PUENTE DE MANDO DE BARCO:
+⦁	COBRE
+⦁	ESTAÑO
+⦁	ALUMINIO
+⦁	LITIO
+⦁	FIBRA DE CARBONO
+'''),
+        ];
         break;
       // Metales en Agricultura
       case 'Maquinaría':
         return [
-          EnvironmentItem(1, 'assets/images/environments/maquinaria_item (1).png', 'center', null, null, null, null, null),
+          EnvironmentItem(1, 'assets/images/environments/maquinaria_item (1).png', 'center', null, null, null, null, '''* Motor: 
+Cobre, Aluminio, Cromo, Indio, Vanadio, Indio, Magnesio
+* Llantas: 
+Alambres acerados, Enmallados
+* PERNOS Y AROS:
+Acero inoxidable, Aceros son alineaciones de cromo. Aluminio, níquel, vanadio.
+* Pintura:
+Cobre, Fierro, Plomo, Selenio, Cadmio
+'''),
         ];
         break;
       case 'Herramientas':
+        return [
+          EnvironmentItem(1, 'assets/images/environments/herramientas_item (1).png', 'center', 15, null, null, 15,
+              'PALA: \nAcero aleación de hierro y carbono.'),
+          EnvironmentItem(2, 'assets/images/environments/herramientas_item (2).png', 'center', 25, null, null, 100, 'RASTRILLO: \n*	Hierro'),
+          EnvironmentItem(3, 'assets/images/environments/herramientas_item (3).png', 'center', 15, 100, null, null,
+              'Escoba: \n*	Acero aleación de hierro y carbono'),
+          EnvironmentItem(4, 'assets/images/environments/herramientas_item (4).png', 'center', 15, 15, null, null,
+              'Azadilla de horquilla o escardillo: \n*	Acero o aluminio'),
+          EnvironmentItem(5, 'assets/images/environments/herramientas_item (5).png', 'center', null, null, 0, 15,
+              'REGADERA: \n*	Aluminio,\n*	Estaño\n*	Hierro'),
+          EnvironmentItem(6, 'assets/images/environments/herramientas_item (6).png', 'center', null, null, 0, 85, 'PICO: \n*	Acero '),
+          EnvironmentItem(
+              7, 'assets/images/environments/herramientas_item (7).png', 'center', null, 15, 0, null, 'CARRETILLA: \n*	Acero Inoxidable'),
+        ];
         break;
       case 'Insumos':
         return [
-          EnvironmentItem(1, 'assets/images/environments/insumos_item (1).png', 'center', null, null, null, 15, null),
-          EnvironmentItem(2, 'assets/images/environments/insumos_item (2).png', 'center', null, null, null, null, null),
-          EnvironmentItem(3, 'assets/images/environments/insumos_item (3).png', 'center', null, 15, null, null, null),
+          EnvironmentItem(1, 'assets/images/environments/insumos_item (1).png', 'center', null, null, null, 15,
+              'CAL: \n*	Oxido de Calcio Disponible (CaO)\n*	Hidróxido de Calcio Disponible (Ca(OH)2)\n*	Oxido de Magnesio (MgO)\n*	Residuos Insolubles en (HCl)'),
+          EnvironmentItem(
+              2, 'assets/images/environments/insumos_item (2).png', 'center', null, null, null, null, 'FOSFATOS: \n*	Fosfato de Amonio (H₁₂N₃O₄P)'),
+          EnvironmentItem(3, 'assets/images/environments/insumos_item (3).png', 'center', null, 15, null, null, 'UREA: \n*	Nitrógeno (N)'),
         ];
         break;
       default:

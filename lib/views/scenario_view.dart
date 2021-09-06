@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:twenty_one_mining/components/app_bar_component.dart';
+// import 'package:twenty_one_mining/components/app_bar_component.dart';
 import 'package:twenty_one_mining/components/drawer_component.dart';
 import 'package:twenty_one_mining/helpers/storage_manager.dart';
 import 'package:twenty_one_mining/views/level_selector_view.dart';
 import 'package:twenty_one_mining/views/scenario_items_view.dart';
-import 'package:twenty_one_mining/views/scenarios/level01/dormitorio_items_view.dart';
+// import 'package:twenty_one_mining/views/scenarios/level01/dormitorio_items_view.dart';
 
 class ScenarioView extends StatefulWidget {
   late final String scenario;

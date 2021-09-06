@@ -1,10 +1,9 @@
 import 'package:twenty_one_mining/entities/quiz.dart';
 
 class QuizRepository {
-
   getQuiz(environment) {
     switch (environment) {
-    // Metales en Casa
+      // Metales en Casa
       case 'Dormitorio':
         return Quiz(1, 'Dormitorio', '¿Qué mineral se emplea en \n las baterias?', ['Litio', 'Wolframio', 'Paladio', 'Oro'], 1);
         break;
@@ -14,7 +13,7 @@ class QuizRepository {
       case 'Sala':
         return Quiz(1, 'Sala', '¿Qué mineral se emplea en la elaboración \n de los LED?', ['Paladio', 'Silicio', 'Aluminio', 'Cobre'], 2);
         break;
-    // Metales en la Medicina
+      // Metales en la Medicina
       case 'Ambulancia':
         return Quiz(2, 'Ambulancia', 'Question', ['Opción 01', 'Opción 02', 'Opción 03', 'Opción 04'], 1);
         break;
@@ -22,11 +21,12 @@ class QuizRepository {
         return Quiz(2, 'Hospital', 'Question', ['Opción 01', 'Opción 02', 'Opción 03', 'Opción 04'], 1);
         break;
       case 'Instrumentos y Equipos':
-        return Quiz(2, 'Instrumentos y Equipos', 'Question', ['Opción 01', 'Opción 02', 'Opción 03', 'Opción 04'], 1);
+        return Quiz(2, 'Instrumentos y Equipos', '¿Cuál de estos minerales se emplea en la fabricación de un NEGATOSCOPIO',
+            ['Galio', 'Magnesio', 'Plomo', 'Azufre'], 1);
         break;
-    // Metales en Transporte
+      // Metales en Transporte
       case 'Aéreo':
-        return Quiz(3, 'Aéreo', 'Question', ['Opción 01', 'Opción 02', 'Opción 03', 'Opción 04'], 1);
+        return Quiz(3, 'Aéreo', '¿Qué mineral se emplea en su mayoría en la creación de un avión?', ['Estaño', 'Aluminio', 'Litio', 'Cromo'], 1);
         break;
       case 'Terrestre':
         return Quiz(3, 'Terrestre', 'Question', ['Opción 01', 'Opción 02', 'Opción 03', 'Opción 04'], 1);
@@ -34,9 +34,9 @@ class QuizRepository {
       case 'Marítimo':
         return Quiz(3, 'Marítimo', 'Question', ['Opción 01', 'Opción 02', 'Opción 03', 'Opción 04'], 1);
         break;
-    // Metales en Agricultura
+      // Metales en Agricultura
       case 'Maquinaría':
-        return Quiz(4, 'Maquinaría', 'Question', ['Opción 01', 'Opción 02', 'Opción 03', 'Opción 04'], 1);
+        return Quiz(4, 'Maquinaría', '¿Qué minerales se emplean en un TRACTOR', ['Cobre', 'Manganeso', 'Magnesio', '1 y 3'], 4);
         break;
       case 'Herramientas':
         return Quiz(4, 'Herramientas', 'Question', ['Opción 01', 'Opción 02', 'Opción 03', 'Opción 04'], 1);

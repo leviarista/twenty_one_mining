@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twenty_one_mining/components/drawer_component.dart';
 import 'package:twenty_one_mining/entities/quiz.dart';
+import 'package:twenty_one_mining/helpers/storage_manager.dart';
 import 'package:twenty_one_mining/repositories/quiz_repository.dart';
+import 'package:twenty_one_mining/views/level_selector_view.dart';
+import 'package:twenty_one_mining/views/scenario_items_view.dart';
 
 class QuizView extends StatefulWidget {
   late final String scenario;
@@ -97,7 +100,11 @@ class QuizViewState extends State<QuizView> {
                                         actions: [
                                           TextButton(
                                             onPressed: () {
-                                              Navigator.pop(context);
+                                              SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(builder: (context) => LevelSelectorView(storageManager: new StorageManager())),
+                                              );
                                             },
                                             child: const Text('OK'),
                                           ),
