@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twenty_one_mining/helpers/storage_manager.dart';
+import 'package:twenty_one_mining/views/credits_view.dart';
 import 'package:twenty_one_mining/views/register_view.dart';
 import 'package:twenty_one_mining/views/welcome_view.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -34,17 +35,9 @@ class DrawerComponent extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => RegisterView(
-                      storageManager: new StorageManager(),
-                    )),
+                          storageManager: new StorageManager(),
+                        )),
               );
-            },
-          ),
-
-          ListTile(
-            leading: Icon(Icons.link),
-            title: Text('Ir a SME UNC'),
-            onTap: () {
-              _launchURL();
             },
           ),
           // ListTile(
@@ -61,13 +54,31 @@ class DrawerComponent extends StatelessWidget {
               storageManager.write('language', '');
               storageManager.write('avatar', '');
               storageManager.write('name', '');
+              storageManager.write('progress', '');
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => WelcomeView()),
+                MaterialPageRoute(builder: (context) => WelcomeView()),
               );
             },
-          ),          ListTile(
+          ),
+          ListTile(
+            leading: Icon(Icons.link),
+            title: Text('Ir a SME UNC'),
+            onTap: () {
+              _launchURL();
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.link),
+            title: Text('Créditos'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CreditsView(storageManager: storageManager)),
+              );
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Salir'),
             onTap: () {

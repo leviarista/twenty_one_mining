@@ -44,6 +44,7 @@ class SuccessViewState extends State<SuccessView> {
                   Text(
                     this.widget.message.toUpperCase(),
                     style: TextStyle(
+                      fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.w900,
                       fontSize: 30,
                       color: Colors.white,
