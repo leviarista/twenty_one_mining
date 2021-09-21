@@ -51,10 +51,10 @@ class DrawerComponent extends StatelessWidget {
             leading: Icon(Icons.delete),
             title: Text('Limpiar Datos'),
             onTap: () {
-              storageManager.write('language', '');
-              storageManager.write('avatar', '');
-              storageManager.write('name', '');
-              storageManager.write('progress', '');
+              storageManager.delete('language');
+              storageManager.delete('avatar');
+              storageManager.delete('name');
+              storageManager.delete('progress');
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => WelcomeView()),
@@ -69,12 +69,12 @@ class DrawerComponent extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.link),
+            leading: Icon(Icons.alternate_email),
             title: Text('Créditos'),
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CreditsView(storageManager: storageManager)),
+                MaterialPageRoute(builder: (context) => CreditsView()),
               );
             },
           ),

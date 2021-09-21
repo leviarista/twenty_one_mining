@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:twenty_one_mining/helpers/storage_manager.dart';
 import 'package:twenty_one_mining/views/level_selector_view.dart';
-import 'package:twenty_one_mining/views/register_view.dart';
+// import 'package:twenty_one_mining/views/register_view.dart';
 import 'package:twenty_one_mining/views/welcome_view.dart';
 
 void main() {
@@ -75,14 +75,15 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    if (language == 'ESPAÑOL' || language == 'ENGLISH' || language == 'QUICHWA') {
+    // if (language == 'ESPAÑOL' || language == 'ENGLISH' || language == 'QUICHWA') {
       if (avatar != '' && name != '') {
         return LevelSelectorView(storageManager: widget.storageManager);
       } else {
-        return RegisterView(storageManager: widget.storageManager);
+        // return RegisterView(storageManager: widget.storageManager);
+        return WelcomeView();
       }
-    } else {
-      return WelcomeView();
-    }
+    // } else {
+    //   return WelcomeView();
+    // }
   }
 }

@@ -82,4 +82,29 @@ class StorageManager {
     // Write the file
     return file.writeAsString('$value');
   }
+
+  Future delete(String parameter) async {
+    try {
+      final file;
+      switch (parameter) {
+        case 'language':
+          file = await _localFileLanguage;
+          break;
+        case 'avatar':
+          file = await _localFileAvatar;
+          break;
+        case 'name':
+          file = await _localFileName;
+          break;
+        case 'progress':
+          file = await _localFileProgress;
+          break;
+        default:
+          file = null;
+      }
+      await file.delete();
+    } catch (e) {
+      return '';
+    }
+  }
 }

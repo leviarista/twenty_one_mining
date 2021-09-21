@@ -1,14 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:twenty_one_mining/components/app_bar_component.dart';
 import 'package:twenty_one_mining/components/drawer_component.dart';
 import 'package:twenty_one_mining/entities/level.dart';
 import 'package:twenty_one_mining/helpers/storage_manager.dart';
 import 'package:twenty_one_mining/repositories/level_repository.dart';
 import 'package:twenty_one_mining/views/scenario_view.dart';
-import 'package:twenty_one_mining/views/scenarios/level01/dormitorio_main_view.dart';
 
 class LevelSelectorView extends StatefulWidget {
   final StorageManager storageManager;
@@ -129,7 +127,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Level',
+                                  'Nivel',
                                   style: TextStyle(
                                     color: Color.fromRGBO(254, 200, 0, 1.0),
                                   ),

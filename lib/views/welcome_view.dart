@@ -29,7 +29,7 @@ class WelcomeView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text.rich(
-                TextSpan(text: 'WELCOME', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 45, color: Colors.white)),
+                TextSpan(text: 'BIENVENIDO', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 45, color: Colors.white)),
               ),
               Image.asset('assets/images/twenty_one_mining.png'),
               Image.asset('assets/images/stark_team.png'),

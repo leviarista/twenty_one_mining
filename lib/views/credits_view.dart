@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:twenty_one_mining/components/app_bar_component.dart';
 import 'package:twenty_one_mining/components/drawer_component.dart';
-import 'package:twenty_one_mining/helpers/storage_manager.dart';
-import 'package:twenty_one_mining/views/level_selector_view.dart';
 
 class CreditsView extends StatefulWidget {
-  final StorageManager storageManager;
-
-  CreditsView({Key? key, required this.storageManager}) : super(key: key);
+  CreditsView({Key? key}) : super(key: key);
 
   @override
   _CreditsViewState createState() => _CreditsViewState();
 }
 
 class _CreditsViewState extends State<CreditsView> {
-  final members = ['Marco Portal'];
+  final members = [
+    'Portal Valdivia, Marco',
+    'Sánchez Cacho, Edward',
+    'Segobia Campos, Yanina',
+    'Mujica Cabrera, José',
+    'Martínez Gonzales, Patty',
+  ];
 
   final developers = ['Leví Arista'];
 
@@ -58,7 +60,7 @@ class _CreditsViewState extends State<CreditsView> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(bottom: 15.0),
+                  padding: EdgeInsets.only(top: 15, bottom: 15.0),
                   child: Column(
                     children: this
                         .members
@@ -76,37 +78,37 @@ class _CreditsViewState extends State<CreditsView> {
                         .toList(),
                   ),
                 ),
-                Text(
-                  'Desarrolladores',
-                  style: TextStyle(
-                    height: 2,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 20,
-                    color: Color.fromRGBO(254, 200, 0, 1.0),
-                  ),
-                ),
-                Container(
-                  child: Column(
-                    children: this
-                        .developers
-                        .map(
-                          (developer) => Padding(
-                            padding: EdgeInsets.symmetric(vertical: 5.0),
-                            child: Text(
-                              developer,
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        )
-                        .toList(),
-                  ),
-                ),
+                // Text(
+                //   'Desarrolladores',
+                //   style: TextStyle(
+                //     height: 2,
+                //     fontWeight: FontWeight.w900,
+                //     fontSize: 20,
+                //     color: Color.fromRGBO(254, 200, 0, 1.0),
+                //   ),
+                // ),
+                // Container(
+                //   child: Column(
+                //     children: this
+                //         .developers
+                //         .map(
+                //           (developer) => Padding(
+                //             padding: EdgeInsets.symmetric(vertical: 5.0),
+                //             child: Text(
+                //               developer,
+                //               style: TextStyle(
+                //                 color: Colors.white,
+                //               ),
+                //             ),
+                //           ),
+                //         )
+                //         .toList(),
+                //   ),
+                // ),
                 Padding(
-                  padding: EdgeInsets.only(top: 50.0),
+                  padding: EdgeInsets.only(top: 15.0),
                   child: Text(
-                    'SME UNC. 2021',
+                    'Ⓒ 2021. SME UNC.',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,

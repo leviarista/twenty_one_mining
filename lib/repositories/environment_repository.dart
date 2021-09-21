@@ -24,7 +24,7 @@ class EnvironmentRepository {
           EnvironmentItem(12, 'assets/images/environments/dormitorio_item (12).png', 'center', null, 70, 0, null,
               'Tungsteno (W): Usado en el filamento que da luz dentro de los focos \n Cobre (Cu): Usado en el alambre o cable de tu lámpara.'),
         ];
-        break;
+      // break;
       case 'Cocina':
         return [
           EnvironmentItem(1, 'assets/images/environments/cocina_item (1).png', 'center', 50, null, null, 15,
@@ -34,7 +34,7 @@ class EnvironmentRepository {
           EnvironmentItem(3, 'assets/images/environments/cocina_item (3).png', 'center', null, 50, null, null,
               'Sabías que en las cocinas se emplea el alumnio, cobre, hierro y demás metales en su construcción.'),
         ];
-        break;
+      // break;
       case 'Sala':
         return [
           EnvironmentItem(1, 'assets/images/environments/sala_item (1).png', 'center', 50, null, null, 50,
@@ -44,33 +44,34 @@ class EnvironmentRepository {
           EnvironmentItem(3, 'assets/images/environments/sala_item (3).png', 'center', null, 50, null, null,
               'Sabías que las nuevas tecnologías LED emplean sicilio en su elaboración.'),
         ];
-        break;
+      // break;
       // Metales en la Medicina
       case 'Ambulancia':
         return [
-          EnvironmentItem(1, 'assets/images/environments/ambulancia_item (1).png', 'center', null, null, null, null, null),
+          EnvironmentItem(1, 'assets/images/environments/ambulancia_item (1).png', 'center', null, null, null, null,
+              'Sabias que las ambulancias poseen muchos minerales en su construcción, desde el hierro y aluminio en la construcción del chasis y exterior, hasta silicio en las ventadas y aún más en los instrumentos que tienen a bordo'),
         ];
-        break;
+      // break;
       case 'Hospital':
         return [
           EnvironmentItem(1, 'assets/images/environments/hospital_item (1).png', 'center', null, null, 15, 15,
-              'CAMILLA CLÍNICA \n ⦁	Acero inoxidable(estructura), reservas: Hierro, Marcona. Cromo, Morococha (Junín) . Carbono, Cascas (La Libertad) \n ⦁	Aluminio, reservas: Toromocho (Junín)'),
-          EnvironmentItem(2, 'assets/images/environments/hospital_item (2).png', 'center', 15, 105, null, null,
-              'SUERO FISIOLÓGICO \n ⦁	Cloruro de Sodio, reservas: '),
-          EnvironmentItem(3, 'assets/images/environments/hospital_item (3).png', 'center', 15, 15, null, null,
-              'SUERO FISIOLÓGICO \n ⦁	Cloruro de Sodio, reservas: '),
+              'CAMILLA CLÍNICA \n ⦁	Acero inoxidable(estructura). Hierro. Cromo . Carbono. \n ⦁	Aluminio.'),
+          EnvironmentItem(
+              2, 'assets/images/environments/hospital_item (2).png', 'center', 15, 105, null, null, 'SUERO FISIOLÓGICO \n ⦁	Cloruro de Sodio.'),
+          EnvironmentItem(
+              3, 'assets/images/environments/hospital_item (3).png', 'center', 15, 15, null, null, 'SUERO FISIOLÓGICO \n ⦁	Cloruro de Sodio. '),
         ];
-        break;
+      // break;
       case 'Instrumentos y Equipos':
         return [
           EnvironmentItem(1, 'assets/images/environments/instrumentos_equipos_item (1).png', 'center', null, null, null, 15,
-              'NEGATOSCOPIO (lector de radiografías) \n ⦁	Indio- galio- arsénico (luces LED), reservas: Morococha \n ⦁	Aluminio, reservas: Toromocho \n ⦁	Acero inoxidable(estructura), reservas: Hierro, Marcona. Cromo, Morococha. Carbono, Cascas.'),
+              'NEGATOSCOPIO (lector de radiografías) \n ⦁	Indio - galio - arsénico (luces LED). \n ⦁	Aluminio. \n ⦁	Acero inoxidable(estructura), Hierro, Cromo, Carbono.'),
           EnvironmentItem(2, 'assets/images/environments/instrumentos_equipos_item (2).png', 'center', null, null, null, null,
-              'MOBILIARIO QUIRURGICO: \n ⦁	 Cobre (cables de conexión), reservas: Antamina (Ancash), Toquepala, Cerro Verde, Cuajone y Tintaya (Arequipa) \n ⦁	Hierro(estructura), reservas: Hierro, Marcona (Ica)'),
+              'MOBILIARIO QUIRURGICO: \n ⦁	 Cobre (cables de conexión). \n ⦁	Hierro(estructura).'),
           EnvironmentItem(3, 'assets/images/environments/instrumentos_equipos_item (3).png', 'center', null, 15, null, null,
-              'ELECTROCARDIÓGRAFO \n ⦁	Aluminio(estructura), reservas: Toromocho \n ⦁	Plata (electrodo desechable), reservas: Antamina (Ancash) \n ⦁	Litio (batería recargable). reservas: Macusani (Puno)'),
+              'ELECTROCARDIÓGRAFO \n ⦁	Aluminio(estructura). \n ⦁	Plata (electrodo desechable). \n ⦁	Litio (batería recargable).'),
         ];
-        break;
+      // break;
       // Metales en Transporte
       case 'Aéreo':
         return [
@@ -106,7 +107,7 @@ class EnvironmentRepository {
 ⦁	Aceros con alineaciones de cromo. Aluminio, níquel, vanadio. (PERNOS DEL ASIENTO)
 '''),
         ];
-        break;
+      // break;
       case 'Terrestre':
         return [
           EnvironmentItem(1, 'assets/images/environments/terrestre_item (1).png', 'center', 15, null, null, null, '''CHASIS DEL CARRO:
@@ -136,7 +137,7 @@ class EnvironmentRepository {
 ⦁	PLOMO
 ⦁	COBRE'''),
         ];
-        break;
+      // break;
       case 'Marítimo':
         return [
           EnvironmentItem(1, 'assets/images/environments/maritimo_item (1).png', 'center', 50, null, null, null, '''CASCO DEL BARCO: 
@@ -160,7 +161,7 @@ class EnvironmentRepository {
 ⦁	FIBRA DE CARBONO
 '''),
         ];
-        break;
+      // break;
       // Metales en Agricultura
       case 'Maquinaría':
         return [
@@ -174,32 +175,32 @@ Acero inoxidable, Aceros son alineaciones de cromo. Aluminio, níquel, vanadio.
 Cobre, Fierro, Plomo, Selenio, Cadmio
 '''),
         ];
-        break;
+      // break;
       case 'Herramientas':
         return [
-          EnvironmentItem(1, 'assets/images/environments/herramientas_item (1).png', 'center', 15, null, null, 15,
-              'PALA: \nAcero aleación de hierro y carbono.'),
+          EnvironmentItem(
+              1, 'assets/images/environments/herramientas_item (1).png', 'center', 15, null, null, 15, 'PALA: \nAcero aleación de hierro y carbono.'),
           EnvironmentItem(2, 'assets/images/environments/herramientas_item (2).png', 'center', 25, null, null, 100, 'RASTRILLO: \n*	Hierro'),
           EnvironmentItem(3, 'assets/images/environments/herramientas_item (3).png', 'center', 15, 100, null, null,
               'Escoba: \n*	Acero aleación de hierro y carbono'),
           EnvironmentItem(4, 'assets/images/environments/herramientas_item (4).png', 'center', 15, 15, null, null,
               'Azadilla de horquilla o escardillo: \n*	Acero o aluminio'),
-          EnvironmentItem(5, 'assets/images/environments/herramientas_item (5).png', 'center', null, null, 0, 15,
-              'REGADERA: \n*	Aluminio,\n*	Estaño\n*	Hierro'),
-          EnvironmentItem(6, 'assets/images/environments/herramientas_item (6).png', 'center', null, null, 0, 85, 'PICO: \n*	Acero '),
           EnvironmentItem(
-              7, 'assets/images/environments/herramientas_item (7).png', 'center', null, 15, 0, null, 'CARRETILLA: \n*	Acero Inoxidable'),
+              5, 'assets/images/environments/herramientas_item (5).png', 'center', null, null, 0, 15, 'REGADERA: \n*	Aluminio,\n*	Estaño\n*	Hierro'),
+          EnvironmentItem(6, 'assets/images/environments/herramientas_item (6).png', 'center', null, null, 0, 85, 'PICO: \n*	Acero '),
+          EnvironmentItem(7, 'assets/images/environments/herramientas_item (7).png', 'center', null, 15, 0, null, 'CARRETILLA: \n*	Acero Inoxidable'),
         ];
-        break;
+      // break;
       case 'Insumos':
         return [
           EnvironmentItem(1, 'assets/images/environments/insumos_item (1).png', 'center', null, null, null, 15,
-              'CAL: \n*	Oxido de Calcio Disponible (CaO)\n*	Hidróxido de Calcio Disponible (Ca(OH)2)\n*	Oxido de Magnesio (MgO)\n*	Residuos Insolubles en (HCl)'),
-          EnvironmentItem(
-              2, 'assets/images/environments/insumos_item (2).png', 'center', null, null, null, null, 'FOSFATOS: \n*	Fosfato de Amonio (H₁₂N₃O₄P)'),
-          EnvironmentItem(3, 'assets/images/environments/insumos_item (3).png', 'center', null, 15, null, null, 'UREA: \n*	Nitrógeno (N)'),
+              'Cal: \nSe usa para estabilizar el pH del suelo y está formada por Óxido de calcio(CaO) '),
+          EnvironmentItem(2, 'assets/images/environments/insumos_item (2).png', 'center', null, null, null, null,
+              'Fosfatos: \nEstán conformados por minerales de fósforo para aportar riqueza al suelo y se produzcan eficientemente los alimentos.'),
+          EnvironmentItem(3, 'assets/images/environments/insumos_item (3).png', 'center', null, 15, null, null,
+              'Urea: \nLa urea está formada por nitrato de amonio y gracias al nitrógeno que posee las plantas pueden crecer de manera adecuada.'),
         ];
-        break;
+      // break;
       default:
         break;
     }

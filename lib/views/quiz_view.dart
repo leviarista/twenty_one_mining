@@ -7,7 +7,6 @@ import 'package:twenty_one_mining/helpers/storage_manager.dart';
 import 'package:twenty_one_mining/repositories/level_repository.dart';
 import 'package:twenty_one_mining/repositories/quiz_repository.dart';
 import 'package:twenty_one_mining/views/level_selector_view.dart';
-import 'package:twenty_one_mining/views/scenario_items_view.dart';
 import 'package:twenty_one_mining/views/success_view.dart';
 
 class QuizView extends StatefulWidget {
@@ -76,12 +75,12 @@ class QuizViewState extends State<QuizView> {
               ),
               GridView.count(
                   crossAxisCount: 2,
-                  childAspectRatio: (size.width * 2) / ((size.height - 100)),
+                  childAspectRatio: (size.width * 2) / ((size.height - 60)),
                   shrinkWrap: true,
                   children: quiz.options
                       .map(
                         (option) => Padding(
-                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 50),
+                          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                           child: Stack(alignment: Alignment.center, children: [
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
@@ -94,31 +93,66 @@ class QuizViewState extends State<QuizView> {
                               onPressed: () {
                                 // navigateToEnvironment(environment);
                                 if (quiz.answer == (quiz.options.indexOf(option) + 1)) {
-                                  print('Correct answer');
-                                  this.storageManager.read('progress').then((value) {
-                                    if (value.contains('#' + this.quiz.scenario + '#')) {
-                                      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => LevelSelectorView(storageManager: new StorageManager())),
+                                  // print('Correct answer');
+                                  showDialog(
+                                    barrierDismissible: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        title: const Text('¡Genial!'),
+                                        content: Text('Respuesta correcta'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              this.storageManager.read('progress').then((value) {
+                                                if (value.contains('#' + this.quiz.scenario + '#')) {
+                                                  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(builder: (context) => LevelSelectorView(storageManager: new StorageManager())),
+                                                  );
+                                                } else {
+                                                  var newValue = value + '#' + this.quiz.scenario + '#';
+
+                                                  storageManager.write('progress', newValue);
+
+                                                  // Validate if all environments from this level have been completed
+                                                  List<Level> levels = LevelRepository().getLevels();
+                                                  int counter = 0;
+                                                  levels[this.quiz.level - 1].environments.forEach((env) {
+                                                    if (newValue.contains('#' + env + '#')) counter++;
+                                                  });
+                                                  if (counter >= 3) {
+                                                    counter = 0;
+                                                    levels.forEach((level) {
+                                                      level.environments.forEach((env) {
+                                                        if (newValue.contains('#' + env + '#')) counter++;
+                                                      });
+                                                    });
+                                                    String message = counter >= 12
+                                                        ? 'HAS COMPLETADO TODOS LOS NIVELES'
+                                                        : 'HAS COMPLETADO EL NIVEL ' + quiz.level.toString();
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(builder: (context) => SuccessView(message: message)),
+                                                    );
+                                                  } else {
+                                                    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+                                                    Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) => LevelSelectorView(storageManager: new StorageManager())),
+                                                    );
+                                                  }
+                                                }
+                                              });
+                                            },
+                                            child: const Text('OK'),
+                                          ),
+                                        ],
                                       );
-                                    } else {
-                                      storageManager.write('progress', value + '#' + this.quiz.scenario + '#');
-                                      List<Level> levels = LevelRepository().getLevels();
-                                      int counter = 0;
-                                      levels.forEach((level) {
-                                        level.environments.forEach((env) {
-                                          if ((value + '#' + this.quiz.scenario + '#').contains('#' + env + '#')) counter++;
-                                        });
-                                      });
-                                      String message =
-                                          counter >= 12 ? 'HAS COMPLETADO TODOS LOS NIVELES' : 'HAS COMPLETADO EL NIVEL ' + quiz.level.toString();
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(builder: (context) => SuccessView(message: message)),
-                                      );
-                                    }
-                                  });
+                                    },
+                                  );
                                 } else {
                                   showDialog(
                                     context: context,
