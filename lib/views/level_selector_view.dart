@@ -61,6 +61,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBarComponent(),
       drawer: DrawerComponent(),
@@ -77,13 +78,13 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                 child: Column(
                   children: [
                     Container(
-                      width: 300,
+                      width: size.width - (size.width * 0.26),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            width: 70.0,
-                            height: 70.0,
+                            width: 65.0,
+                            height: 65.0,
                             alignment: Alignment.center,
                             decoration: new BoxDecoration(
                               color: Colors.white,
@@ -116,8 +117,8 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                             ),
                           ),
                           Container(
-                            width: 70.0,
-                            height: 70.0,
+                            width: 65.0,
+                            height: 65.0,
                             alignment: Alignment.center,
                             decoration: new BoxDecoration(
                               color: Color.fromRGBO(0, 130, 61, 1.0),
@@ -135,7 +136,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                                 Text(
                                   '0' + this.selectedLevel.index.toString(),
                                   style: TextStyle(
-                                    fontSize: 35,
+                                    fontSize: 30,
                                     fontWeight: FontWeight.bold,
                                     color: Color.fromRGBO(254, 200, 0, 1.0),
                                   ),
@@ -147,19 +148,19 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 15.0),
+                      padding: EdgeInsets.symmetric(vertical: 10.0),
                       child: Text(
                         'Elige tu escenario',
                         style: TextStyle(
                           color: Colors.white,
-                          height: 2,
+                          // height: 2,
                         ),
                       ),
                     ),
                     CarouselSlider(
                       options: CarouselOptions(
                           enableInfiniteScroll: false,
-                          height: 250.0,
+                          height: 240.0,
                           onPageChanged: (index, reason) {
                             setState(() {
                               this.selectedLevel = levels[index];
@@ -212,7 +213,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
             child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  height: showEnvs ? 294 : 110,
+                  height: showEnvs ? 260 : 86,
                   decoration: new BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.rectangle,
@@ -229,7 +230,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                         'Mi progreso',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: 16,
                           color: Color.fromRGBO(48, 201, 114, 1.0),
                         ),
                       ),
@@ -276,7 +277,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
   Widget getEnvs() {
     if (showEnvs)
       return Padding(
-        padding: EdgeInsets.only(top: 5, bottom: 20),
+        padding: EdgeInsets.only(top: 5, bottom: 10),
         child: Column(
           children: [
             Text.rich(

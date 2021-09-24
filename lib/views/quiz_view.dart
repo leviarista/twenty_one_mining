@@ -180,20 +180,20 @@ class QuizViewState extends State<QuizView> {
                                     fit: BoxFit.fitHeight,
                                   ),
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(top: 20, left: 50),
-                              child: Text(
-                                option,
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: Colors.white,
+                                child: Padding(
+                                  padding: EdgeInsets.only(top: 20, left: 50),
+                                  child: Text(
+                                    option,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            )
+                            ),
                           ]),
                         ),
                       )

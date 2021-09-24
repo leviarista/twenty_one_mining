@@ -19,7 +19,7 @@ class QuizRepository {
             ['Oro – Plata', 'Aluminio – Estaño', 'Hierro – Aluminio', 'Plata – Cobre'], 3);
         // break;
       case 'Hospital':
-        return Quiz(2, 'Hospital', '¿Qué minerales se emplean en la estructura de las camillas clínicas?',
+        return Quiz(2, 'Hospital', '¿Qué minerales se emplean en la estructura de \nlas camillas clínicas?',
             ['Acero inoxidable', 'Aluminio', 'Hierro', 'Plata '], 1);
         // break;
       case 'Instrumentos y Equipos':
@@ -32,7 +32,7 @@ class QuizRepository {
             ['Aluminio – Titanio \nMagnesio', 'Estaño – Cobre - Oro', 'Plata – Cobre - Oro', 'Estaño – Cobre – Plata'], 1);
         // break;
       case 'Terrestre':
-        return Quiz(3, 'Terrestre', '¿Qué mineral NO se emplea en la construcción del radiador?', ['Cobre', 'Aluminio', 'Latón', 'Oro'], 4);
+        return Quiz(3, 'Terrestre', '¿Qué mineral NO se emplea en \nla construcción del radiador?', ['Cobre', 'Aluminio', 'Latón', 'Oro'], 4);
         // break;
       case 'Marítimo':
         return Quiz(
