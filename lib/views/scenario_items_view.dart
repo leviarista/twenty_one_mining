@@ -15,7 +15,7 @@ class ScenarioItemsView extends StatefulWidget {
 }
 
 class ScenarioItemsViewState extends State<ScenarioItemsView> {
-  String initialMessage = 'Mensaje sobre elemento selecionado';
+  String initialMessage = '';
   late String selectedInfo;
   late final List<EnvironmentItem> items;
 

@@ -19,7 +19,7 @@ class QuizRepository {
             ['Oro – Plata', 'Aluminio – Estaño', 'Hierro – Aluminio', 'Plata – Cobre'], 3);
         // break;
       case 'Hospital':
-        return Quiz(2, 'Hospital', '¿Qué minerales se emplean en la estructura de las canillas clínicas?',
+        return Quiz(2, 'Hospital', '¿Qué minerales se emplean en la estructura de las camillas clínicas?',
             ['Acero inoxidable', 'Aluminio', 'Hierro', 'Plata '], 1);
         // break;
       case 'Instrumentos y Equipos':
@@ -29,7 +29,7 @@ class QuizRepository {
       // Metales en Transporte
       case 'Aéreo':
         return Quiz(3, 'Aéreo', '¿Qué minerales se emplean en\n el exterior del avión?',
-            ['Aluminio – titaneo – Magnesio', 'Estaño – Cobre - Oro', 'Plata – Cobre - Oro', 'Estaño – cobre – Plata'], 1);
+            ['Aluminio – Titanio \nMagnesio', 'Estaño – Cobre - Oro', 'Plata – Cobre - Oro', 'Estaño – Cobre – Plata'], 1);
         // break;
       case 'Terrestre':
         return Quiz(3, 'Terrestre', '¿Qué mineral NO se emplea en la construcción del radiador?', ['Cobre', 'Aluminio', 'Latón', 'Oro'], 4);
@@ -40,11 +40,11 @@ class QuizRepository {
         // break;
       // Metales en Agricultura
       case 'Maquinaría':
-        return Quiz(4, 'Maquinaría', '¿Qué minerales se emplean en un TRACTOR', ['Cobre', 'Manganeso', 'Magnesio', '1 y 3'], 4);
+        return Quiz(4, 'Maquinaría', '¿Qué minerales se emplean en un TRACTOR?', ['Cobre', 'Manganeso', 'Magnesio', '1 y 3'], 4);
         // break;
       case 'Herramientas':
-        return Quiz(4, 'Herramientas', '¿Qué mineral se emplea en los picos?',
-            ['Aluminio – titaneo – Magnesio', 'Estaño – Cobre - Oro', 'Plata – Cobre - Oro', 'Estaño – cobre – Plata'], 1);
+        return Quiz(4, 'Herramientas', '¿Qué mineral se emplea en los PICOS?',
+            ['Carbono', 'Aleación de Hierro y \nCarbono', 'Estaño', 'Acero'], 4);
         // break;
       case 'Insumos':
         return Quiz(4, 'Insumos', '¿Qué minerales se usa dentro de la cal?', ['Aluminio', 'Fosfatos', 'Óxido de Calcio', 'Sulfato de Cobre'], 3);

@@ -226,7 +226,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                     children: [
                       getEnvs(),
                       Text(
-                        'Tu progreso',
+                        'Mi progreso',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -256,7 +256,7 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('                  '),
+                                  Text('              '),
                                   Image.asset('assets/images/gold_bar_1.png'),
                                   Image.asset('assets/images/gold_bar_2.png'),
                                   Image.asset('assets/images/gold_bar_3.png'),
@@ -265,18 +265,6 @@ class _LevelSelectorViewState extends State<LevelSelectorView> {
                             ),
                           ),
                         ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 15, right: 15, top: 0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('0 barras'),
-                            Text('1 barra'),
-                            Text('2 barras'),
-                            Text('3 barras'),
-                          ],
-                        ),
                       ),
                     ],
                   ),

@@ -21,7 +21,7 @@
 <!--        </intent>-->
     </queries>
     <application
-        android:label="21 Mining"
+        android:label="Mining 21"
         android:icon="@mipmap/twenty_one_mining">
         <activity
             android:name=".MainActivity"

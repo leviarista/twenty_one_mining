@@ -46,21 +46,23 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBarComponent(),
       drawer: DrawerComponent(),
       backgroundColor: Color.fromRGBO(48, 201, 114, 1.0),
       body: Container(
-          width: double.infinity,
-          height: double.infinity,
+          // width: double.infinity,
+          height: size.height - 135,
           alignment: Alignment.center,
           child: Container(
-            height: 600,
+            // height: 600,
             // color: Colors.red,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('assets/images/twenty_one_mining.png'),
-                Image.asset('assets/images/stark_team.png'),
+                Image.asset('assets/images/twenty_one_mining_small.png'),
+                // Image.asset('assets/images/stark_team_small.png'),
                 Text.rich(
                   TextSpan(
                       text: 'Elige tu avatar',
@@ -72,13 +74,13 @@ class _RegisterViewState extends State<RegisterView> {
                 ),
                 Container(
                   width: 255,
-                  height: 150,
+                  // height: 150,
                   alignment: Alignment.center,
                   child: Container(
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.symmetric(vertical: 10.0),
+                          padding: EdgeInsets.symmetric(vertical: 0.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -121,21 +123,23 @@ class _RegisterViewState extends State<RegisterView> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           // fontSize: 18,
-                          // height: 3,
+                          height: 3,
                           color: Colors.white)),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 10.0),
-                  width: 300,
+                  padding: EdgeInsets.symmetric(vertical: 0.0),
+                  width: 220,
                   child: TextField(
                     controller: nameTxtController,
                     autofocus: false,
                     decoration: InputDecoration(
+                      isDense: true,
                       border: new OutlineInputBorder(
                         borderRadius: const BorderRadius.all(
                           const Radius.circular(30.0),
                         ),
                       ),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12.0),
                       hintText: '',
                       filled: true,
                       fillColor: Colors.white,
@@ -147,7 +151,7 @@ class _RegisterViewState extends State<RegisterView> {
                     primary: Color.fromRGBO(0, 130, 61, 1.0),
                     onPrimary: Colors.white,
                     shape: StadiumBorder(),
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 0),
                   ),
                   onPressed: () {
                     if (this.avatar == '') {
