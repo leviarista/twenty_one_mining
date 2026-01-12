@@ -2,8 +2,6 @@
 # <div align="center"> Mining 21<br/> <img src="./assets/icons/mipmap-xhdpi/twenty_one_mining.png"> </div>
 <div align="center"> Educational app to raise awareness about the use of minerals in daily life.</div>
 
----
-
 <sup>[english](#english) - [español](#español)</sup>
 
 <div align="center">
@@ -17,6 +15,8 @@
   <img src="https://i.imgur.com/hPVqZwc.png" width="150" />
   <img src="https://i.imgur.com/KLka5lE.png" width="150" />
 </div>
+
+---
 
 <a name="english"></a>
 
