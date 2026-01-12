@@ -1,7 +1,22 @@
 
 # <div align="center"> Mining 21<br/> <img src="./assets/icons/mipmap-xhdpi/twenty_one_mining.png"> </div>
+<div align="center"> Educational app to raise awareness about the use of minerals in daily life.</div>
+
+---
 
 <sup>[english](#english) - [español](#español)</sup>
+
+<div>
+  <img src="https://i.imgur.com/bknJKen.png" width="200" />
+  <img src="https://i.imgur.com/aRKejBm.png" width="200" />
+  <img src="https://i.imgur.com/lfWMfW5.png" width="200" />
+</div>
+<div>
+  <img src="https://i.imgur.com/mAVO77K.png" width="150" />
+  <img src="https://i.imgur.com/66xHGH3.png" width="150" />
+  <img src="https://i.imgur.com/hPVqZwc.png" width="150" />
+  <img src="https://i.imgur.com/KLka5lE.png" width="150" />
+</div>
 
 <a name="english"></a>
 
