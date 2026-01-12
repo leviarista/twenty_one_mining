@@ -6,12 +6,12 @@
 
 <sup>[english](#english) - [español](#español)</sup>
 
-<div>
+<div align="center">
   <img src="https://i.imgur.com/bknJKen.png" width="200" />
   <img src="https://i.imgur.com/aRKejBm.png" width="200" />
   <img src="https://i.imgur.com/lfWMfW5.png" width="200" />
 </div>
-<div>
+<div align="center">
   <img src="https://i.imgur.com/mAVO77K.png" width="150" />
   <img src="https://i.imgur.com/66xHGH3.png" width="150" />
   <img src="https://i.imgur.com/hPVqZwc.png" width="150" />
